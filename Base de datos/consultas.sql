@@ -1,0 +1,12 @@
+SELECT 'Consulta 1';
+SELECT cont_titulo FROM contenidos ORDER BY cont_titulo;
+SELECT 'Consulta 2';
+SELECT c.cont_titulo, p.pel_resumen, p.pel_anio FROM contenidos c INNER JOIN peliculas p ON  c.cont_id = p.cont_id WHERE p.pel_Anio > 2000 ORDER BY c.cont_titulo;
+SELECT 'Consulta 3';
+SELECT c.cont_titulo FROM contenidos c INNER JOIN peliculas p ON c.cont_id = p.cont_id WHERE dir_id = 105;
+SELECT 'Consulta 4';
+SELECT c.cont_Titulo FROM contenidos c INNER JOIN transmisiones t ON c.cont_id = t.cont_id WHERE usr_username = "lucky" ORDER BY cont_titulo;
+SELECT 'Consulta 5';
+SELECT u.usr_username, u.usr_nombres, u.usr_apellidos FROM usuarios u INNER JOIN transmisiones t ON t.usr_username = u.usr_username WHERE cont_id = 2 ORDER BY u.usr_nombres;
+SELECT 'Consulta 6';
+SELECT COUNT(c.cont_titulo) FROM contenidos c INNER JOIN peliculas p ON c.cont_id = p.cont_id WHERE p.pel_anio > 2000;
