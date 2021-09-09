@@ -10,7 +10,7 @@ package peliculas;
  *
  * @author Joan Valencia
  */
-public class Main_Peliculas {
+public class Peliculas {
 
     /**
      * @param args the command line arguments
