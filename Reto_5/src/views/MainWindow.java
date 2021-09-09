@@ -21,7 +21,7 @@ public class MainWindow extends JFrame {
     }
     
     private void initComponents(){
-        setTitle("Administrador de Peliculas");
+        setTitle("Tienda de Películas");
         
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
