@@ -37,14 +37,16 @@ public class MainWindow extends JFrame {
         }
         
         OptionsPanel optionsPanel = new OptionsPanel();
-        ResultsPanel resultsPanel = new ResultsPanel();
+        optionsPanel.setBorder(BorderFactory.createTitledBorder("Seleccione"));
         InputPanel inputPanel = new InputPanel();
-
+        inputPanel.setBorder(BorderFactory.createTitledBorder("Ingresar Información / Detalle"));
+        ResultsPanel resultsPanel = new ResultsPanel();
+        resultsPanel.setBorder(BorderFactory.createTitledBorder(""));
+        
         add(optionsPanel, BorderLayout.LINE_START);
         add(inputPanel, BorderLayout.LINE_END);
         add(resultsPanel, BorderLayout.PAGE_END);
-        
-        
+                
         pack();
         //setSize(1040, 720);
         

@@ -5,7 +5,9 @@
  */
 package views;
 
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
@@ -33,21 +35,43 @@ public class OptionsPanel extends JPanel{
     private void initComponents() {
         
         setLayout(new GridBagLayout());
-        
-        this.label_opciones = new JLabel("Seleccione una de las siguientes opciones:");
-        add(label_opciones);
+        GridBagConstraints c = new GridBagConstraints();
         
         this.consultar_pelicula = new JRadioButton("Consultar peliculas", true);
-        add(consultar_pelicula);
+        c.fill = GridBagConstraints.CENTER;
+        c.insets = new Insets(5,5,5,5);
+        c.weightx = 0.0;
+        c.gridwidth = 1;
+        c.gridx = 0;
+        c.gridy = 1;
+        add(consultar_pelicula, c);
         
         this.agregar_pelicula = new JRadioButton("Agregar Pelicula", false);
-        add(agregar_pelicula);
+        c.fill = GridBagConstraints.CENTER;
+        c.insets = new Insets(5,5,5,5);
+        c.weightx = 0.0;
+        c.gridwidth = 1;
+        c.gridx = 0;
+        c.gridy = 2;
+        add(agregar_pelicula, c);
         
         this.eliminar_pelicula = new JRadioButton("Eliminar Pelicula", false);
-        add(eliminar_pelicula);
+        c.fill = GridBagConstraints.CENTER;
+        c.insets = new Insets(5,5,5,5);
+        c.weightx = 0.0;
+        c.gridwidth = 1;
+        c.gridx = 0;
+        c.gridy = 3;
+        add(eliminar_pelicula, c);
         
         this.ejecutar = new JButton("EJECUTAR");
-        add(ejecutar);
+        c.fill = GridBagConstraints.CENTER;
+        c.insets = new Insets(5,5,5,5);
+        c.weightx = 0.0;
+        c.gridwidth = 1;
+        c.gridx = 0;
+        c.gridy = 4;
+        add(ejecutar, c);
         
         this.consultas_grupo = new ButtonGroup();
         this.consultas_grupo.add(consultar_pelicula);
