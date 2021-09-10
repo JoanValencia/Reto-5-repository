@@ -7,6 +7,7 @@ package views;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 
@@ -22,11 +23,9 @@ public class InputPanel extends JPanel {
     private JLabel nombre_pelicula;
     private JTextField nombre_pelicula_text;
     private JLabel resumen;
-    private JTextField resumen_text;
+    private JTextArea resumen_text;
     private JLabel nombre_director;
     private JTextField nombre_director_text;
-    private JLabel apellido_director;
-    private JTextField apellido_director_text;
     private JLabel anio_pelicula;
     private JTextField anio_pelicula_text;
     
@@ -42,13 +41,32 @@ public class InputPanel extends JPanel {
         this.id_pelicula = new JLabel("ID Película");
         add(id_pelicula);
         
-        this.id_pelicula_text = new JTextField();
+        this.id_pelicula_text = new JTextField(20);
         add(id_pelicula_text);
         
         this.nombre_pelicula = new JLabel("Nombre Película");
         add(nombre_pelicula);
         
-        this.nombre_pelicula_text = new JTextField();
+        this.nombre_pelicula_text = new JTextField(20);
         add(nombre_pelicula_text);
+        
+        this.resumen = new JLabel("Resumen");
+        add(resumen);
+        
+        this.resumen_text = new JTextArea(5, 20);
+        add(resumen_text);
+        
+        this.nombre_director = new JLabel("Director");
+        add(nombre_director);
+        
+        this.nombre_director_text = new JTextField(20);
+        add(nombre_director_text);
+        
+        this.anio_pelicula = new JLabel("Año Estreno");
+        add(anio_pelicula);
+        
+        this.anio_pelicula_text = new JTextField(20);
+        add(anio_pelicula_text);
+        
     }
 }
