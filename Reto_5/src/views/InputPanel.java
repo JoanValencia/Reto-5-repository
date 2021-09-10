@@ -39,6 +39,16 @@ public class InputPanel extends JPanel {
         this.titulo = new JLabel("Ingrese la información solicitada");
         add(titulo);
         
+        this.id_pelicula = new JLabel("ID Película");
+        add(id_pelicula);
         
+        this.id_pelicula_text = new JTextField();
+        add(id_pelicula_text);
+        
+        this.nombre_pelicula = new JLabel("Nombre Película");
+        add(nombre_pelicula);
+        
+        this.nombre_pelicula_text = new JTextField();
+        add(nombre_pelicula_text);
     }
 }

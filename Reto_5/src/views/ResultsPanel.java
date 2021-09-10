@@ -26,7 +26,7 @@ public class ResultsPanel extends JPanel{
     
     private void initComponents() {
         
-        resultados_tabla = new  JLabel("Hello");
+        resultados_tabla = new  JLabel("Aquí va la tabla");
         add(resultados_tabla);
     }
 }
