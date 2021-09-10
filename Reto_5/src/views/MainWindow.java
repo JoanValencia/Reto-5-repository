@@ -5,8 +5,10 @@
  */
 package views;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.BorderFactory;
 import javax.swing.UIManager;
 import javax.swing.JFrame;
 
@@ -21,7 +23,11 @@ public class MainWindow extends JFrame {
     }
     
     private void initComponents(){
+        
         setTitle("Tienda de Películas");
+        
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension frameSize  = getSize();
         
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -30,14 +36,18 @@ public class MainWindow extends JFrame {
             e.printStackTrace();
         }
         
+        OptionsPanel optionsPanel = new OptionsPanel();
         ResultsPanel resultsPanel = new ResultsPanel();
-        setContentPane(resultsPanel);
-        add(new ControlsPanel(resultsPanel));
+        InputPanel inputPanel = new InputPanel();
+
+        add(optionsPanel, BorderLayout.LINE_START);
+        add(inputPanel, BorderLayout.LINE_END);
+        add(resultsPanel, BorderLayout.PAGE_END);
         
-        setSize(1040, 720);
         
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        Dimension frameSize  = getSize();
+        pack();
+        //setSize(1040, 720);
+        
         setLocation((screenSize.width  - frameSize.width)  / 2, 
                     (screenSize.height - frameSize.height) / 2);
         

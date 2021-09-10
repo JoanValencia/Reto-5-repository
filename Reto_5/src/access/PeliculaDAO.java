@@ -20,7 +20,7 @@ public class PeliculaDAO {
     private Connection conn = null;
     
     public ArrayList<PeliculaModel> obtenerPeliculas(){
-        ArrayList<PeliculaModel> peliculas = new ArrayList<PeliculaModel>();
+        ArrayList<PeliculaModel> peliculas = new ArrayList<>();
         try{
             if(conn == null)
                     conn = ConnectionDB.getConnection();
@@ -43,7 +43,8 @@ public class PeliculaDAO {
             }
         }
         catch(SQLException ex){
-                    ex.printStackTrace();}
+            ex.printStackTrace();
+        }
         return peliculas;
     }
     
@@ -63,9 +64,9 @@ public class PeliculaDAO {
             
             //Condicional para validar el funcionamiento:
             if (rowsInserted > 0)
-                System.out.println("Se insertó");
+                System.out.println("Se insertaron " + rowsInserted + " registros.");
             else
-                System.out.println("No funcionó");
+                System.out.println("No se insertó ningún registro.");
         }
         catch(SQLException ex){
             ex.printStackTrace();
