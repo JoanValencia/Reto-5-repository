@@ -32,4 +32,7 @@ public class DirectorModel {
         this.dir_nombre = dir_nombre;
     }
 
+     public String toString() {
+        return this.dir_nombre;
+    }
 }

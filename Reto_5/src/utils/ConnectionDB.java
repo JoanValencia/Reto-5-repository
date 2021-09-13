@@ -35,7 +35,7 @@ public class ConnectionDB {
         Connection conn = null;
         // conectar
         try {
-            String credentials_path = System.getProperty("user.dir") + "/src/utils/db_credentials.json";
+            String credentials_path = System.getProperty("user.dir") + "/src/utils/credenciales.json";
             JSONObject jsonObject = (JSONObject)parser.parse(new FileReader(credentials_path));
             
             String host     = (String)jsonObject.get("db_ip");

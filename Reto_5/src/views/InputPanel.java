@@ -92,7 +92,7 @@ public class InputPanel extends JPanel {
         c.gridy = 3;
         add(this.resumen, c);
         
-        this.resumen_text = new JTextArea(3, 20);
+        this.resumen_text = new JTextArea(4, 20);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(5,5,5,5);
         c.weightx = 0.0;
@@ -110,7 +110,8 @@ public class InputPanel extends JPanel {
         c.gridy = 1;
         add(this.nombre_director, c);
         
-        this.nombre_director_text = new JComboBox(initialData.getDirectores().toArray(new DirectorModel[5]));
+        this.nombre_director_text = new JComboBox(initialData.getDirectores().toArray(new DirectorModel[initialData.getPeliculas().size()]));
+        //this.nombre_director_text.setModel(new DefaultComboBoxModel<>(initialData.getDirectores().toArray(new DirectorModel[initialData.getPeliculas().size()])));
         this.nombre_director_text.setSelectedIndex(0);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(5,5,5,5);

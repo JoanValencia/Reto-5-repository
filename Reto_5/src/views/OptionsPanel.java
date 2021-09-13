@@ -29,7 +29,8 @@ public class OptionsPanel extends JPanel{
     private ButtonGroup consultas_grupo;
     private JRadioButton consultar_pelicula;
     private JRadioButton agregar_pelicula;
-    private JRadioButton eliminar_pelicula;  
+    private JRadioButton actualizar_pelicula;
+    private JRadioButton eliminar_pelicula;
     private JButton ejecutar;
     private final InputPanel input_panel;
     private final ResultsPanel result_panel;
@@ -67,6 +68,15 @@ public class OptionsPanel extends JPanel{
         add(agregar_pelicula, c);
         agregar_pelicula.addActionListener(onSelectEvent);
 
+        this.actualizar_pelicula = new JRadioButton("Actualizar Pelicula", false);
+        c.fill = GridBagConstraints.CENTER;
+        c.insets = new Insets(5,5,5,5);
+        c.weightx = 0.0;
+        c.gridwidth = 1;
+        c.gridx = 0;
+        c.gridy = 3;
+        add(actualizar_pelicula, c);
+        actualizar_pelicula.addActionListener(onSelectEvent);
         
         this.eliminar_pelicula = new JRadioButton("Eliminar Pelicula", false);
         c.fill = GridBagConstraints.CENTER;
@@ -74,7 +84,7 @@ public class OptionsPanel extends JPanel{
         c.weightx = 0.0;
         c.gridwidth = 1;
         c.gridx = 0;
-        c.gridy = 3;
+        c.gridy = 4;
         add(eliminar_pelicula, c);
         eliminar_pelicula.addActionListener(onSelectEvent);
 
@@ -84,13 +94,14 @@ public class OptionsPanel extends JPanel{
         c.weightx = 0.0;
         c.gridwidth = 1;
         c.gridx = 0;
-        c.gridy = 4;
+        c.gridy = 5;
         add(ejecutar, c);
         this.ejecutar.addActionListener(clickEvent);
         
         this.consultas_grupo = new ButtonGroup();
         this.consultas_grupo.add(consultar_pelicula);
         this.consultas_grupo.add(agregar_pelicula);
+        this.consultas_grupo.add(actualizar_pelicula);
         this.consultas_grupo.add(eliminar_pelicula);
         
     }
