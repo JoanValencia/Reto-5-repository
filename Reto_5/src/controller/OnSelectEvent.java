@@ -35,7 +35,8 @@ public class OnSelectEvent implements ActionListener {
         case "Consultar Peliculas":
             System.out.println("Deshabilitar campos de no consulta");
             this.inputPanel.enableFields(false);
-
+            this.inputPanel.getNombrePeliculaText().setEnabled(true);
+            this.inputPanel.getNombrePelicula().setEnabled(true);
             break;
             
         case "Agregar Pelicula":
@@ -43,8 +44,11 @@ public class OnSelectEvent implements ActionListener {
             this.inputPanel.enableFields(true);
             this.inputPanel.getIdPeliculaText().setEnabled(false);
             this.inputPanel.getIdPelicula().setEnabled(false);
-            this.inputPanel.getNombrePeliculaText().setEnabled(true);
-            this.inputPanel.getNombrePelicula().setEnabled(true);
+            break;
+            
+        case "Actualizar Pelicula":
+            System.out.println("Habilitar todos los campos");
+            this.inputPanel.enableFields(true);
             break;
             
         case "Eliminar Pelicula":
@@ -52,8 +56,6 @@ public class OnSelectEvent implements ActionListener {
             this.inputPanel.enableFields(false);
             this.inputPanel.getIdPeliculaText().setEnabled(true);
             this.inputPanel.getIdPelicula().setEnabled(true);
-            this.inputPanel.getNombrePeliculaText().setEnabled(false);
-            this.inputPanel.getNombrePelicula().setEnabled(false);
             break;
             
         default:

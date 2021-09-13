@@ -178,6 +178,8 @@ public class InputPanel extends JPanel {
         this.resumen_text.setEnabled(enabled);
         this.resumen.setEnabled(enabled);
         this.nombre_director_text.setEnabled(enabled);
+        this.nombre_pelicula_text.setEnabled(enabled);
+        this.nombre_pelicula.setEnabled(enabled);
         this.nombre_director.setEnabled(enabled);
         this.anio_pelicula_text.setEnabled(enabled);
         this.anio_pelicula.setEnabled(enabled);
