@@ -114,5 +114,8 @@ public class PeliculaModel {
         return dirNombre;
     }
     
-    
+    public Object[] toArray(){
+        Object[] data = {pelId, contId_fk, dirId_fk, pelResumen, pelAnio, contTitulo, dirNombre};
+        return data;
+    }
 }

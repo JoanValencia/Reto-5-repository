@@ -5,13 +5,17 @@
  */
 package views;
 
+import controller.InitialData;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import model.DirectorModel;
 
 
 /**
@@ -29,7 +33,7 @@ public class InputPanel extends JPanel {
     private JLabel resumen;
     private JTextArea resumen_text;
     private JLabel nombre_director;
-    private JTextField nombre_director_text;
+    private JComboBox<DirectorModel> nombre_director_text;
     private JLabel anio_pelicula;
     private JTextField anio_pelicula_text;
     
@@ -41,6 +45,7 @@ public class InputPanel extends JPanel {
         
         setLayout(new GridBagLayout()); 
         GridBagConstraints c = new GridBagConstraints();
+        InitialData initialData = new InitialData();
         
         this.id_pelicula = new JLabel("ID Película");
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -105,7 +110,8 @@ public class InputPanel extends JPanel {
         c.gridy = 1;
         add(this.nombre_director, c);
         
-        this.nombre_director_text = new JTextField(20);
+        this.nombre_director_text = new JComboBox(initialData.getDirectores().toArray(new DirectorModel[5]));
+        this.nombre_director_text.setSelectedIndex(0);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(5,5,5,5);
         c.weightx = 0.0;
@@ -131,6 +137,48 @@ public class InputPanel extends JPanel {
         c.gridx = 3;
         c.gridy = 2;
         add(anio_pelicula_text, c);
-
+        
+        //empezar con campos deshabilitados
+        this.enableFields(false);
+        this.enableFields(false);
+    }
+        
+    public JTextField getIdPeliculaText(){
+        return this.id_pelicula_text;
+    }
+    
+    public JLabel getIdPelicula(){
+        return this.id_pelicula;
+    }
+    
+    public JTextField getNombrePeliculaText(){
+        return this.nombre_pelicula_text;
+    }
+    
+    public JLabel getNombrePelicula(){
+        return this.nombre_pelicula;
+    }
+    
+    public JTextArea getResumenPeliculaText(){
+        return this.resumen_text;
+    }
+   
+    public JComboBox getNombreDirectorText(){
+        return this.nombre_director_text;
+    }
+    
+    public JTextField getAnioPeliculaText(){
+        return this.anio_pelicula_text;
+    }
+    
+    public void enableFields(boolean enabled){
+        this.id_pelicula_text.setEnabled(enabled);
+        this.id_pelicula.setEnabled(enabled);
+        this.resumen_text.setEnabled(enabled);
+        this.resumen.setEnabled(enabled);
+        this.nombre_director_text.setEnabled(enabled);
+        this.nombre_director.setEnabled(enabled);
+        this.anio_pelicula_text.setEnabled(enabled);
+        this.anio_pelicula.setEnabled(enabled);
     }
 }

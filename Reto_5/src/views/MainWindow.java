@@ -24,7 +24,7 @@ public class MainWindow extends JFrame {
     
     private void initComponents(){
         
-        setTitle("Tienda de Películas");
+        setTitle("Administrador de Películas");
         
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize  = getSize();
@@ -36,22 +36,23 @@ public class MainWindow extends JFrame {
             e.printStackTrace();
         }
         
-        OptionsPanel optionsPanel = new OptionsPanel();
-        optionsPanel.setBorder(BorderFactory.createTitledBorder("Seleccione"));
         InputPanel inputPanel = new InputPanel();
+        ResultsPanel resultsPanel = new ResultsPanel(inputPanel);
+        OptionsPanel optionsPanel = new OptionsPanel(inputPanel, resultsPanel);
+        optionsPanel.setBorder(BorderFactory.createTitledBorder("Seleccione"));
+        
         inputPanel.setBorder(BorderFactory.createTitledBorder("Ingresar Información / Detalle"));
-        ResultsPanel resultsPanel = new ResultsPanel();
         resultsPanel.setBorder(BorderFactory.createTitledBorder(""));
         
         add(optionsPanel, BorderLayout.LINE_START);
-        add(inputPanel, BorderLayout.LINE_END);
+        add(inputPanel, BorderLayout.CENTER);
         add(resultsPanel, BorderLayout.PAGE_END);
                 
         pack();
         //setSize(1040, 720);
         
-        setLocation((screenSize.width  - frameSize.width)  / 2, 
-                    (screenSize.height - frameSize.height) / 2);
+        setLocation((screenSize.width  - frameSize.width)  / 4, 
+                    (screenSize.height - frameSize.height) / 4);
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
