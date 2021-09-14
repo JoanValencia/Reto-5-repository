@@ -42,7 +42,7 @@ public class MainWindow extends JFrame {
         optionsPanel.setBorder(BorderFactory.createTitledBorder("Seleccione"));
         
         inputPanel.setBorder(BorderFactory.createTitledBorder("Ingresar Información / Detalle"));
-        resultsPanel.setBorder(BorderFactory.createTitledBorder(""));
+        resultsPanel.setBorder(BorderFactory.createTitledBorder("Tabla Actualizada de Películas"));
         
         add(optionsPanel, BorderLayout.LINE_START);
         add(inputPanel, BorderLayout.CENTER);

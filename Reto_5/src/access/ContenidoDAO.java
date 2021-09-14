@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import model.ContenidoModel;
 import model.DirectorModel;
 import utils.ConnectionDB;
@@ -22,8 +24,8 @@ import utils.ConnectionDB;
 public class ContenidoDAO {
     private Connection conn = null;
     
-    public ArrayList<DirectorModel> insertContenido(ContenidoModel contenidoModel){
-        ArrayList<DirectorModel> directores = new ArrayList<>();
+    public ArrayList<ContenidoModel> insertContenido(ContenidoModel contenidoModel){
+        ArrayList<ContenidoModel> contenido = new ArrayList<>();
         try{
             if(conn == null)
                     conn = ConnectionDB.getConnection();
@@ -39,7 +41,7 @@ public class ContenidoDAO {
         catch(SQLException ex){
             ex.printStackTrace();
         }
-        return directores;
+        return contenido;
     }
     
     
@@ -64,5 +66,49 @@ public class ContenidoDAO {
             ex.printStackTrace();
         }
         return id;
+    }
+    
+    public int getContIdByPelId(int pel_id) {
+        int id = 0;
+        try{
+            if(conn == null)
+                    conn = ConnectionDB.getConnection();
+
+            String sql = "SELECT cont_id FROM peliculas "
+                    + "WHERE pel_id = "
+                    + pel_id;
+            Statement statement = conn.createStatement();
+            ResultSet result = statement.executeQuery(sql);
+            while(result.next()){
+                //si llegan a existir dos contenidos con el mismo nombre
+                //traerá el último id
+                id = result.getInt(1);
+            }
+        }
+        catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return id;
+    }
+    
+    public void updatecontenidoById(ContenidoModel contenidoModel){
+        
+        try{
+            if(conn == null)
+                    conn = ConnectionDB.getConnection();
+
+            String sql = "UPDATE contenidos SET cont_titulo = " 
+                    + "'" + contenidoModel.getCont_titulo() + "'"
+                    + " WHERE cont_id = " + contenidoModel.getCont_id();
+            
+            PreparedStatement statement = conn.prepareStatement(sql);
+            int rowsInserted = statement.executeUpdate();
+            if(rowsInserted > 0) {
+                System.out.println("Título del contenido Actualizado");
+            }
+        }
+        catch(SQLException ex){
+            ex.printStackTrace();
+        }
     }
 }

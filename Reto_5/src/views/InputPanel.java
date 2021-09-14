@@ -111,7 +111,6 @@ public class InputPanel extends JPanel {
         add(this.nombre_director, c);
         
         this.nombre_director_text = new JComboBox(initialData.getDirectores().toArray(new DirectorModel[initialData.getPeliculas().size()]));
-        //this.nombre_director_text.setModel(new DefaultComboBoxModel<>(initialData.getDirectores().toArray(new DirectorModel[initialData.getPeliculas().size()])));
         this.nombre_director_text.setSelectedIndex(0);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(5,5,5,5);
@@ -141,7 +140,8 @@ public class InputPanel extends JPanel {
         
         //empezar con campos deshabilitados
         this.enableFields(false);
-        this.enableFields(false);
+        this.nombre_pelicula.setEnabled(true);
+        this.nombre_pelicula_text.setEnabled(true);
     }
         
     public JTextField getIdPeliculaText(){

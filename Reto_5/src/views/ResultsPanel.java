@@ -47,7 +47,7 @@ public class ResultsPanel extends JPanel{
     }
     
     public void setTableResults(ArrayList<PeliculaModel> peliculas) {
-        String[] headers = {"ID", "contID", "dirID", "Resumen", "año", "Título", "Director"};
+        String[] headers = {"ID", "Resumen", "año", "Título", "Director"};
         this.resultados_tabla.removeAll();
         DefaultTableModel tableModel = new DefaultTableModel();
         tableModel.setColumnIdentifiers(headers); 

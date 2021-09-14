@@ -10,22 +10,14 @@ package model;
  * @author Joan Valencia
  */
 public class PeliculaModel {
-    private int     pelId;
-    private int     contId_fk;
-    private int     dirId_fk;
-    private String  pelResumen;
-    private int     pelAnio;
-    
+    private int pelId;
+    private int contId_fk;
+    private int dirId_fk;
+    private String pelResumen;
+    private int pelAnio; 
     private String contTitulo;
     private String dirNombre;
 
-    /**Constructor manejo interno de la tabla
-    * @param pelId
-    * @param contId_fk
-    * @param dirId_fk
-    * @param pelResumen
-    * @param pelAnio
-    */
     public PeliculaModel(int pelId, int contId_fk, int dirId_fk, String pelResumen, 
             int pelAnio){
         this.pelId      = pelId;
@@ -34,14 +26,7 @@ public class PeliculaModel {
         this.pelResumen = pelResumen;
         this.pelAnio    = pelAnio;
     }
-    
-    /**Cosntructor para mostrar la iformación (proyectar la base de datos)
-    * @param pelId
-    * @param contTitulo
-    * @param pelResumen
-    * @param dirNombre
-    * @param pelAnio
-    */
+
     public PeliculaModel(int pelId, String contTitulo, String pelResumen, 
             String dirNombre, int pelAnio){
         this.pelId      = pelId;
@@ -49,6 +34,16 @@ public class PeliculaModel {
         this.pelResumen = pelResumen;
         this.dirNombre  = dirNombre; 
         this.pelAnio    = pelAnio;
+    }
+    
+    public PeliculaModel(int pelId, int cont_id, int dir_id, String contTitulo, 
+            String pelResumen, int pelAnio){
+        this.pelId = pelId;
+        this.contId_fk = cont_id;
+        this.dirId_fk = dir_id;
+        this.contTitulo = contTitulo;
+        this.pelResumen = pelResumen;
+        this.pelAnio = pelAnio;
     }
 
     /**
@@ -115,7 +110,7 @@ public class PeliculaModel {
     }
     
     public Object[] toArray(){
-        Object[] data = {pelId, contId_fk, dirId_fk, pelResumen, pelAnio, contTitulo, dirNombre};
+        Object[] data = {pelId, pelResumen, pelAnio, contTitulo, dirNombre};
         return data;
     }
 }

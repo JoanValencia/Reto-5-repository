@@ -65,6 +65,7 @@ public class ClickEvent implements ActionListener {
                 peliculas = peliculaDAO.getAllMovies();
                 this.resultPanel.setTableResults(peliculas);
                 this.inputPanel.getIdPeliculaText().setText("");
+                this.inputPanel.getNombrePeliculaText().setText("");
                 this.inputPanel.getResumenPeliculaText().setText("");
                 this.inputPanel.getAnioPeliculaText().setText("");
                 String mensaje = "Se agregó pelicula correctamente.";
@@ -80,6 +81,34 @@ public class ClickEvent implements ActionListener {
             
         case "Actualizar Pelicula":
             System.out.println("Actualizar Pelicula");
+            try {
+                int pel_id = Integer.parseInt(this.inputPanel.getIdPeliculaText().getText());
+                int cont_id = this.getContenidoIdByPelId(pel_id);
+                int dir_id = ((DirectorModel)this.inputPanel.getNombreDirectorText().getSelectedItem()).getDir_id();
+                String cont_titulo = this.inputPanel.getNombrePeliculaText().getText();
+                int pel_anio = 0;
+                String pel_resumen = "";
+                if(!this.inputPanel.getResumenPeliculaText().getText().equals("")){
+                    pel_resumen = this.inputPanel.getResumenPeliculaText().getText();
+                }
+                if(!this.inputPanel.getAnioPeliculaText().getText().equals("")){
+                    pel_anio = Integer.parseInt(this.inputPanel.getAnioPeliculaText().getText());
+                }
+                PeliculaModel pelicula = new PeliculaModel(pel_id, cont_id, dir_id, cont_titulo, pel_resumen, pel_anio);
+                peliculaDAO.actualizarPelicula(pelicula);
+                peliculas = peliculaDAO.getAllMovies();
+                this.resultPanel.setTableResults(peliculas);
+                this.inputPanel.getIdPeliculaText().setText("");
+                this.inputPanel.getNombrePeliculaText().setText("");
+                this.inputPanel.getResumenPeliculaText().setText("");
+                this.inputPanel.getAnioPeliculaText().setText("");
+            }
+            catch (NumberFormatException ex) {
+                String mensaje = "No se pudo agregar la pelicula, revise que la información esté completa.";
+                JOptionPane.showMessageDialog(new JFrame(), mensaje, "Agregar Pelicula",
+                JOptionPane.INFORMATION_MESSAGE);
+            }
+            break;
             
         case "Eliminar Pelicula":
             System.out.println("Eliminar una pelicula");
@@ -102,5 +131,11 @@ public class ClickEvent implements ActionListener {
         ContenidoDAO contenidoDAO = new ContenidoDAO();
         contenidoDAO.insertContenido(contenido);
         return contenidoDAO.getIdByTitulo(Titulo);
+    }
+    
+    public int getContenidoIdByPelId(int pel_id) {
+        
+        ContenidoDAO contenidoDAO = new ContenidoDAO();
+        return contenidoDAO.getContIdByPelId(pel_id);
     }
 }
